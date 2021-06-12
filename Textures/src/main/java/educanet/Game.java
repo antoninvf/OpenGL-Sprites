@@ -35,45 +35,40 @@ public class Game {
     // Sprite
 
     private static final float[] sprite1 = {
-            0.1f, 0.0f,
-            0.1f, 1.0f,
+            0.16f, 0.0f,
+            0.16f, 1.0f,
             0.0f, 1.0f,
             0.0f, 0.0f,
     };
-
     private static final float[] sprite2 = {
-            0.3f, 0.0f,
-            0.3f, 1.0f,
+            0.32f, 0.0f,
+            0.32f, 1.0f,
             0.16f, 1.0f,
             0.16f, 0.0f,
     };
-
     private static final float[] sprite3 = {
-            0.5f, 0.0f,
-            0.5f, 1.0f,
-            0.3f, 1.0f,
-            0.3f, 0.0f,
+            0.48f, 0.0f,
+            0.48f, 1.0f,
+            0.32f, 1.0f,
+            0.32f, 0.0f,
     };
-
     private static final float[] sprite4 = {
-            0.6f, 0.0f,
-            0.6f, 1.0f,
-            0.5f, 1.0f,
-            0.5f, 0.0f,
+            0.64f, 0.0f,
+            0.64f, 1.0f,
+            0.48f, 1.0f,
+            0.48f, 0.0f,
     };
-
     private static final float[] sprite5 = {
-            0.8f, 0.0f,
-            0.8f, 1.0f,
-            0.6f, 1.0f,
-            0.6f, 0.0f,
+            0.80f, 0.0f,
+            0.80f, 1.0f,
+            0.64f, 1.0f,
+            0.64f, 0.0f,
     };
-
     private static final float[] sprite6 = {
-            0.9f, 0.0f,
-            0.9f, 1.0f,
-            0.8f, 1.0f,
-            0.8f, 0.0f,
+            0.96f, 0.0f,
+            0.96f, 1.0f,
+            0.80f, 1.0f,
+            0.80f, 0.0f,
     };
 
     private static int squareVaoId;
@@ -151,14 +146,12 @@ public class Game {
     }
 
     private static FloatBuffer tb = BufferUtils.createFloatBuffer(10);
-    private static int cycleNum = 1;
-    private static float speed = (float) 0.5;
+    private static double cycleNum = 1;
+    private static double speed = 0.01;
 
     public static void update(long window) {
-
-        if(cycleNum == 1 || cycleNum == 1.5) {
+        if(cycleNum >= 1) {
             GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, textureIndicesId);
-            tb.clear();
             tb.put(sprite1).flip();
             GL33.glBufferData(GL33.GL_ARRAY_BUFFER, tb, GL33.GL_STATIC_DRAW);
             GL33.glVertexAttribPointer(2, 2, GL33.GL_FLOAT, false, 0, 0);
@@ -166,7 +159,7 @@ public class Game {
             System.out.println("1: " + cycleNum);
             cycleNum += speed;
         }
-        if(cycleNum == 2 || cycleNum == 2.5) {
+        if(cycleNum >= 2) {
             GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, textureIndicesId);
             tb.clear();
             tb.put(sprite2).flip();
@@ -176,7 +169,7 @@ public class Game {
             System.out.println("2: " + cycleNum);
             cycleNum += speed;
         }
-        if(cycleNum == 3 || cycleNum == 3.5) {
+        if(cycleNum >= 3) {
             GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, textureIndicesId);
             tb.clear();
             tb.put(sprite3).flip();
@@ -186,7 +179,7 @@ public class Game {
             System.out.println("3: " + cycleNum);
             cycleNum += speed;
         }
-        if(cycleNum == 4 || cycleNum == 4.5) {
+        if(cycleNum >= 4) {
             GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, textureIndicesId);
             tb.clear();
             tb.put(sprite4).flip();
@@ -196,7 +189,7 @@ public class Game {
             System.out.println("4: " + cycleNum);
             cycleNum += speed;
         }
-        if(cycleNum == 5 || cycleNum == 5.5) {
+        if(cycleNum >= 5) {
             GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, textureIndicesId);
             tb.clear();
             tb.put(sprite5).flip();
@@ -206,7 +199,7 @@ public class Game {
             System.out.println("5: " + cycleNum);
             cycleNum += speed;
         }
-        if(cycleNum == 6 || cycleNum == 6.5) {
+        if(cycleNum >= 6) {
             GL33.glBindBuffer(GL33.GL_ARRAY_BUFFER, textureIndicesId);
             tb.clear();
             tb.put(sprite6).flip();
